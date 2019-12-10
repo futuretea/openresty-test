@@ -4,7 +4,3 @@ RUN sed -i "s|http://dl-cdn.alpinelinux.org|https://mirrors.aliyun.com|g" /etc/a
 RUN git clone https://github.com/openresty/test-nginx.git \
 && cd test-nginx \
 && prove -Itest-nginx/lib -r t
-RUN echo "#!/bin/sh" > /entrypoint.sh && echo "prove -r ./t/">>/entrypoint.sh && chmod +x /entrypoint.sh
-WORKDIR /test
-VOLUME /test
-ENTRYPOINT /entrypoint.sh
